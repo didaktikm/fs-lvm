@@ -70,7 +70,7 @@ Vagrant.configure("2") do |config|
             cp ~vagrant/.ssh/auth* ~root/.ssh
             yum install -y epel-release mdadm smartmontools hdparm gdisk mc curl ncdu ansible
 			ansible-galaxy install didaktikm.ansible_zsh
-		    curl https://raw.githubusercontent.com/didaktikm/ansible-role-zsh/master/playbook.yml > /tmp/zsh.yml
+		    curl https://raw.githubusercontent.com/didaktikm/ansible.zsh/master/playbook.yml > /tmp/zsh.yml
 		    ansible-playbook -i "localhost," -c local /tmp/zsh.yml
 		    ansible-playbook -i "localhost," -c local /tmp/zsh.yml --extra-vars="zsh_user=$(whoami)"
             SHELL

@@ -68,8 +68,8 @@ Vagrant.configure("2") do |config|
         box.vm.provision "shell", inline: <<-SHELL
             mkdir -p ~root/.ssh
             cp ~vagrant/.ssh/auth* ~root/.ssh
-            yum install -y mdadm smartmontools hdparm gdisk mc curl ansible
-			ansible-galaxy install viasite-ansible.zsh
+            yum install -y epel-release mdadm smartmontools hdparm gdisk mc curl ncdu ansible
+			ansible-galaxy install didaktikm.ansible_zsh
 		    curl https://raw.githubusercontent.com/didaktikm/ansible-role-zsh/master/playbook.yml > /tmp/zsh.yml
 		    ansible-playbook -i "localhost," -c local /tmp/zsh.yml
 		    ansible-playbook -i "localhost," -c local /tmp/zsh.yml --extra-vars="zsh_user=$(whoami)"
